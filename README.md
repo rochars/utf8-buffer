@@ -3,7 +3,7 @@ ES6 module to encode and decode UTF-8 strings.
 Copyright (c) 2018 Rafael da Silva Rocha.  
 https://github.com/rochars/utf8-buffer
 
-[![NPM version](https://img.shields.io/npm/v/utf8-buffer.svg?style=for-the-badge)](https://www.npmjs.com/package/utf8-buffer) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/utf8-buffer/api/) [![Tests](https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge)](https://rawgit.com/rochars/utf8-buffer/master/test/browser.html)  
+[![NPM version](https://img.shields.io/npm/v/utf8-buffer.svg?style=for-the-badge)](https://www.npmjs.com/package/utf8-buffer) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/utf8-buffer/index.html) [![Tests](https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge)](https://rawgit.com/rochars/utf8-buffer/master/test/dist/browser.html)  
 [![Codecov](https://img.shields.io/codecov/c/github/rochars/utf8-buffer.svg?style=flat-square)](https://codecov.io/gh/rochars/utf8-buffer) [![Unix Build](https://img.shields.io/travis/rochars/utf8-buffer.svg?style=flat-square)](https://travis-ci.org/rochars/utf8-buffer) [![Windows Build](https://img.shields.io/appveyor/ci/rochars/utf8-buffer.svg?style=flat-square&logo=appveyor)](https://ci.appveyor.com/project/rochars/utf8-buffer) [![Scrutinizer](https://img.shields.io/scrutinizer/g/rochars/utf8-buffer.svg?style=flat-square&logo=scrutinizer)](https://scrutinizer-ci.com/g/rochars/utf8-buffer/)
 
 **utf8-buffer** is a ES6 module to encode and decode UTF-8 strings.

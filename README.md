@@ -41,7 +41,7 @@ let packed = pack('\uFFFD輸');
 Or **require**:
 ```javascript
 const utf8Buffer = require('utf8-buffer');
-let packed = pack('笠߹~');
+let packed = utf8Buffer.pack('笠߹~');
 ```
 
 ### Browser
@@ -73,6 +73,7 @@ Should work in all modern browsers. Cross-browser tests are on the [ROADMAP](htt
 ```javascript
 /**
  * Read a string of UTF-8 characters from a byte buffer.
+ * Invalid characters are replaced with 'REPLACEMENT CHARACTER' (U+FFFD).
  * @see https://encoding.spec.whatwg.org/#the-encoding
  * @see https://stackoverflow.com/a/34926911
  * @param {!Uint8Array|!Array<!number>} buffer A byte buffer.

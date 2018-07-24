@@ -84,6 +84,7 @@ function utf8BufferSize(str) {
 
 /**
  * Read a string of UTF-8 characters from a byte buffer.
+ * Invalid characters are replaced with 'REPLACEMENT CHARACTER' (U+FFFD).
  * @see https://encoding.spec.whatwg.org/#the-encoding
  * @see https://stackoverflow.com/a/34926911
  * @param {!Uint8Array|!Array<!number>} buffer A byte buffer.

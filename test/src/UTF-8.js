@@ -15,7 +15,6 @@ describe('replace invalid characters', function() {
     it('returns the next index to write', function() {
         buffer = [];
         let index = utf8Buffer.pack('ab', buffer);
-        console.log(index);
         utf8Buffer.pack('cd', buffer, index);
         assert.deepEqual(buffer, [97,98,99,100]);
     });

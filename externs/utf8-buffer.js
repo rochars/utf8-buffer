@@ -23,7 +23,7 @@
  */
 
 /**
- * @fileoverview Externs for utf8-buffer 0.0.1
+ * @fileoverview Externs for utf8-buffer 0.1.0
  * @see https://github.com/rochars/utf8-buffer
  * @externs
  */
@@ -33,18 +33,20 @@
  * Invalid characters are replaced with 'REPLACEMENT CHARACTER' (U+FFFD).
  * @see https://encoding.spec.whatwg.org/#the-encoding
  * @see https://stackoverflow.com/a/34926911
- * @param {!Uint8Array|!Array<!number>} buffer A byte buffer.
- * @param {number=} index The index to read.
- * @param {?number=} len The number of bytes to read.
- *    If len is undefined will read until the end of the buffer.
+ * @param {!Uint8Array|!Array<number>} buffer A byte buffer.
+ * @param {number=} start The buffer index to start reading.
+ * @param {?number=} end The buffer index to stop reading.
+ *    If end is null will read until the end of the buffer.
  * @return {string}
  */
-function unpack(buffer, index=0, len=null) {}
+function unpack(buffer, start=0, end=null) {}
 
 /**
- * Write a string of UTF-8 characters as a byte buffer.
+ * Write a string of UTF-8 characters to a byte buffer.
  * @see https://encoding.spec.whatwg.org/#utf-8-encoder
  * @param {string} str The string to pack.
- * @return {!Uint8Array} The packed string.
+ * @param {!Uint8Array|!Array<number>} buffer The buffer to pack the string to.
+ * @param {number=} index The buffer index to start writing.
+ * @return {number} The next index to write in the buffer.
  */
-function pack(str) {}
+function pack(str, buffer, index=0) {}

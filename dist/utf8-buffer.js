@@ -23,81 +23,30 @@
  */
 
 /**
- * @fileoverview The utf8-buffer-size API.
- * @see https://github.com/rochars/utf8-buffer-size
- */
-
-/** @module utf8BufferSize */
-
-/**
- * Returns how many bytes are needed to serialize a UTF-8 string.
+ * @fileoverview Functions to serialize and deserialize UTF-8 strings.
+ * @see https://github.com/rochars/utf8-buffer
+ * @see https://encoding.spec.whatwg.org/#the-encoding
  * @see https://encoding.spec.whatwg.org/#utf-8-encoder
- * @param {string} str The string to pack.
- * @return {number} The number of bytes needed to serialize the string.
  */
-function utf8BufferSize(str) {
-  /** @type {number} */
-  let bytes = 0;
-  for (let i = 0, len = str.length; i < len; i++) {
-    /** @type {number} */
-    let codePoint = str.codePointAt(i);
-    if (codePoint < 128) {
-      bytes++;
-    } else {
-      if (codePoint <= 2047) {
-        bytes++;
-      } else if(codePoint <= 65535) {
-        bytes+=2;
-      } else if(codePoint <= 1114111) {
-        i++;
-        bytes+=3;
-      }
-      bytes++;
-    }
-  }
-  return bytes;
-}
 
-/*
- * Copyright (c) 2018 Rafael da Silva Rocha.
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- *
- */
+/** @module utf8-buffer */
 
 /**
  * Read a string of UTF-8 characters from a byte buffer.
  * Invalid characters are replaced with 'REPLACEMENT CHARACTER' (U+FFFD).
  * @see https://encoding.spec.whatwg.org/#the-encoding
  * @see https://stackoverflow.com/a/34926911
- * @param {!Uint8Array|!Array<!number>} buffer A byte buffer.
- * @param {number=} index The index to read.
- * @param {?number=} len The number of bytes to read.
- *    If len is undefined will read until the end of the buffer.
+ * @param {!Uint8Array|!Array<number>} buffer A byte buffer.
+ * @param {number=} start The buffer index to start reading.
+ * @param {?number=} end The buffer index to stop reading.
+ *    If end is null will read until the end of the buffer.
  * @return {string}
  */
-function unpack(buffer, index=0, len=undefined) {
-  len = len !== undefined ? index + len : buffer.length;
+function unpack(buffer, start=0, end=null) {
+  end = end !== null ? end + 1 : buffer.length;
   /** @type {string} */
   let str = "";
-  while(index < len) {
+  for(let index = start; index < end;) {
     /** @type {number} */
     let lowerBoundary = 0x80;
     /** @type {number} */
@@ -157,21 +106,20 @@ function unpack(buffer, index=0, len=undefined) {
 }
 
 /**
- * Write a string of UTF-8 characters as a byte buffer.
+ * Write a string of UTF-8 characters to a byte buffer.
  * @see https://encoding.spec.whatwg.org/#utf-8-encoder
  * @param {string} str The string to pack.
- * @return {!Uint8Array} The packed string.
+ * @param {!Uint8Array|!Array<number>} buffer The buffer to pack the string to.
+ * @param {number=} index The buffer index to start writing.
+ * @return {number} The next index to write in the buffer.
  */
-function pack(str) {
-  /** @type {!Uint8Array} */
-  let bytes = new Uint8Array(utf8BufferSize(str));
-  let bufferIndex = 0;
+function pack(str, buffer, index=0) {
   for (let i = 0, len = str.length; i < len; i++) {
     /** @type {number} */
     let codePoint = str.codePointAt(i);
     if (codePoint < 128) {
-      bytes[bufferIndex] = codePoint;
-      bufferIndex++;
+      buffer[index] = codePoint;
+      index++;
     } else {
       /** @type {number} */
       let count = 0;
@@ -188,16 +136,16 @@ function pack(str) {
         offset = 0xF0;
         i++;
       }
-      bytes[bufferIndex] = (codePoint >> (6 * count)) + offset;
-      bufferIndex++;
+      buffer[index] = (codePoint >> (6 * count)) + offset;
+      index++;
       while (count > 0) {
-        bytes[bufferIndex] = 0x80 | (codePoint >> (6 * (count - 1)) & 0x3F);
-        bufferIndex++;
+        buffer[index] = 0x80 | (codePoint >> (6 * (count - 1)) & 0x3F);
+        index++;
         count--;
       }
     }
   }
-  return bytes;
+  return index++;
 }
 
 export { unpack, pack };

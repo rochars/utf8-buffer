@@ -3,7 +3,7 @@ ES6 module to encode and decode UTF-8 strings.
 Copyright (c) 2018 Rafael da Silva Rocha.  
 https://github.com/rochars/utf8-buffer
 
-[![NPM version](https://img.shields.io/npm/v/utf8-buffer.svg?style=for-the-badge)](https://www.npmjs.com/package/utf8-buffer) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/utf8-buffer/index.html) [![Tests](https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge)](https://rawgit.com/rochars/utf8-buffer/master/test/dist/browser.html)  
+[![NPM version](https://img.shields.io/npm/v/utf8-buffer.svg?style=for-the-badge)](https://www.npmjs.com/package/utf8-buffer) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/utf8-buffer/docs/index.html) [![Tests](https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge)](https://rochars.github.io/utf8-buffer/test/dist/browser.html)  
 [![Codecov](https://img.shields.io/codecov/c/github/rochars/utf8-buffer.svg?style=flat-square)](https://codecov.io/gh/rochars/utf8-buffer) [![Unix Build](https://img.shields.io/travis/rochars/utf8-buffer.svg?style=flat-square)](https://travis-ci.org/rochars/utf8-buffer) [![Windows Build](https://img.shields.io/appveyor/ci/rochars/utf8-buffer.svg?style=flat-square&logo=appveyor)](https://ci.appveyor.com/project/rochars/utf8-buffer) [![Scrutinizer](https://img.shields.io/scrutinizer/g/rochars/utf8-buffer.svg?style=flat-square&logo=scrutinizer)](https://scrutinizer-ci.com/g/rochars/utf8-buffer/)
 
 **utf8-buffer** is a ES6 module to encode and decode UTF-8 strings.
@@ -11,17 +11,12 @@ https://github.com/rochars/utf8-buffer
 - **MIT licensed**
 - **Use it out of the box in the browser**
 - **Use it out of the box in Node.js**
-- **Use it out of the box with [TypeScript](https://www.typescriptlang.org/)**
-- **Use it in little-endian and big-endian hosts!**
-- **Less than 3KB minified!**
+- **Less than 2KB minified!**
 
 ## Install
 ```
 npm install utf8-buffer
 ```
-
-You can also download one of the files in the *./dist* folder:  
-https://github.com/rochars/utf8-buffer/tree/master/dist
 
 ## Use
 
@@ -29,28 +24,22 @@ https://github.com/rochars/utf8-buffer/tree/master/dist
 If you installed via [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com), **import utf8Buffer from utf8-buffer**:
 ```javascript
 import * as utf8Buffer from 'utf8-buffer';
-let packed = utf8Buffer.pack('\uFFFD');
 ```
 
 Or **import** just what you need:
 ```javascript
-import {pack} from 'utf8-buffer';
-let packed = pack('\uFFFD輸');
+import {pack, unpack} from 'utf8-buffer';
 ```
 
 Or **require**:
 ```javascript
 const utf8Buffer = require('utf8-buffer');
-let packed = utf8Buffer.pack('笠߹~');
 ```
 
 ### Browser
 Use **utf8-buffer.umd.js** in the */dist* folder of this package:
 ```html
 <script src="./dist/utf8-buffer.umd.js"></script>
-<script>
-  var packed = utf8Buffer.pack('$𒈓eita');
-</script>
 ```
 
 Or load it from the [jsDelivr](https://cdn.jsdelivr.net/npm/utf8-buffer) CDN:
@@ -76,21 +65,23 @@ Should work in all modern browsers. Cross-browser tests are on the [ROADMAP](htt
  * Invalid characters are replaced with 'REPLACEMENT CHARACTER' (U+FFFD).
  * @see https://encoding.spec.whatwg.org/#the-encoding
  * @see https://stackoverflow.com/a/34926911
- * @param {!Uint8Array|!Array<!number>} buffer A byte buffer.
- * @param {number=} index The index to read.
- * @param {?number=} len The number of bytes to read.
- *    If len is undefined will read until the end of the buffer.
+ * @param {!Uint8Array|!Array<number>} buffer A byte buffer.
+ * @param {number=} start The buffer index to start reading.
+ * @param {?number=} end The buffer index to stop reading.
+ *    If end is null will read until the end of the buffer.
  * @return {string}
  */
-export function unpack(buffer, index=0, len=null) {}
+export function unpack(buffer, start=0, end=null) {}
 
 /**
- * Write a string of UTF-8 characters as a byte buffer.
+ * Write a string of UTF-8 characters to a byte buffer.
  * @see https://encoding.spec.whatwg.org/#utf-8-encoder
  * @param {string} str The string to pack.
- * @return {!Uint8Array} The packed string.
+ * @param {!Uint8Array|!Array<number>} buffer The buffer to pack the string to.
+ * @param {number=} index The buffer index to start writing.
+ * @return {number} The next index to write in the buffer.
  */
-export function pack(str) {}
+export function pack(str, buffer, index=0) {}
 ```
 
 ## Contributing
@@ -104,8 +95,6 @@ https://google.github.io/styleguide/jsguide.html
 
 ### Code of conduct
 This project is bound by a code of conduct: The [Contributor Covenant, version 1.4](https://github.com/rochars/utf8-buffer/blob/master/CODE_OF_CONDUCT.md), also available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
-
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting rocha.rafaelsilva@gmail.com.
 
 ## LICENSE
 Copyright (c) 2018 Rafael da Silva Rocha.

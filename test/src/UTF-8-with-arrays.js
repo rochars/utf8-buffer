@@ -14,13 +14,13 @@ var Buffer = Buffer || false;
 describe('pack() and index as param and as return', function() {
     it('returns the next index to write', function() {
         buffer = [];
-        let index = utf8Buffer.pack('ab', buffer);
+        var index = utf8Buffer.pack('ab', buffer);
         utf8Buffer.pack('cd', buffer, index);
         assert.deepEqual(buffer, [97,98,99,100]);
     });
     it('writes from zero if no index is given', function() {
         buffer = [];
-        let index = utf8Buffer.pack('ab', buffer);
+        var index = utf8Buffer.pack('ab', buffer);
         utf8Buffer.pack('cd', buffer);
         assert.deepEqual(buffer, [99,100]);
     });

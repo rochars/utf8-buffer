@@ -12,6 +12,19 @@ var assert = assert || require('assert');
 var Buffer = Buffer || false;
 
 describe('replace invalid characters', function() {
+    it('returns the next index to write', function() {
+        buffer = [];
+        let index = utf8Buffer.pack('ab', buffer);
+        console.log(index);
+        utf8Buffer.pack('cd', buffer, index);
+        assert.deepEqual(buffer, [97,98,99,100]);
+    });
+    it('writes from zero if no index is given', function() {
+        buffer = [];
+        let index = utf8Buffer.pack('ab', buffer);
+        utf8Buffer.pack('cd', buffer);
+        assert.deepEqual(buffer, [99,100]);
+    });
     it('replaces invalid 2 byte UTF-8 char (2nd byte)', function() {
         assert.equal(utf8Buffer.unpack([0xa0,0xa1]), '\uFFFD\uFFFD');
     });

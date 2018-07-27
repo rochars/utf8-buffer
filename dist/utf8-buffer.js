@@ -145,7 +145,7 @@ function pack(str, buffer, index=0) {
       }
     }
   }
-  return index++;
+  return index;
 }
 
 export { unpack, pack };

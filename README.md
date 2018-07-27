@@ -56,7 +56,7 @@ Or load it from [unpkg](https://unpkg.com/utf8-buffer):
 Only UTF-8 strings with a max of 4 bytes per character are supported. **BOM** is kept untouched. Invalid characters are replaced with *Unicode Character 'REPLACEMENT CHARACTER' (U+FFFD)*.
 
 ### Browser compatibility
-Should work in all modern browsers. Cross-browser tests are on the [ROADMAP](https://github.com/rochars/utf8-buffer/blob/master/ROADMAP.md).
+IE8+. Should work in all modern browsers. Cross-browser tests are on the [ROADMAP](https://github.com/rochars/utf8-buffer/blob/master/ROADMAP.md).
 
 ## API
 ```javascript

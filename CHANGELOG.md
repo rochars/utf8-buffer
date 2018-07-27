@@ -8,3 +8,4 @@
 - unpack(buffer, index, len) updated to unpack(buffer, start, end)
 	- *start* is the buffer index to start reading.
 	- *end* is the buffer index to end reading.
+- works in IE8+.

@@ -11,6 +11,19 @@ var utf8Buffer = utf8Buffer || require('../../test/loader.js');
 var assert = assert || require('assert');
 var Buffer = Buffer || false;
 
+describe('unpackString() end should be non-inclusive', function() {
+    it('stop reading on buffer length', function() {
+        var buffer = [97,98,99,100];
+        var str = utf8Buffer.unpack(buffer, 0, buffer.length);
+        assert.deepEqual(str, 'abcd');
+    });
+    it('stop reading on buffer length', function() {
+        var buffer = [97,98,99,100];
+        var str = utf8Buffer.unpack(buffer, 1, buffer.length - 1);
+        assert.deepEqual(str, 'bc');
+    });
+});
+
 describe('pack() and index as param and as return', function() {
     it('returns the next index to write', function() {
         var buffer = [];

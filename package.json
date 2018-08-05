@@ -1,6 +1,6 @@
 {
   "name": "utf8-buffer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "ES6 module to encode and decode UTF-8 strings.",
   "homepage": "https://github.com/rochars/utf8-buffer",
   "author": "Rafael da Silva Rocha <rocha.rafaelsilva@gmail.com>",

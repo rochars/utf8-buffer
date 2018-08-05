@@ -42,8 +42,7 @@
  *    If end is null will read until the end of the buffer.
  * @return {string}
  */
-function unpack(buffer, start=0, end=null) {
-  end = end !== null ? end + 1 : buffer.length;
+function unpack(buffer, start=0, end=buffer.length) {
   /** @type {string} */
   let str = "";
   for(let index = start; index < end;) {

@@ -39,11 +39,10 @@
  * @param {!Uint8Array|!Array<number>} buffer A byte buffer.
  * @param {number=} start The buffer index to start reading.
  * @param {?number=} end The buffer index to stop reading.
- *    If end is null will read until the end of the buffer.
+ *   Assumes the buffer length if undefined.
  * @return {string}
  */
-export function unpack(buffer, start=0, end=null) {
-  end = end !== null ? end + 1 : buffer.length;
+export function unpack(buffer, start=0, end=buffer.length) {
   /** @type {string} */
   let str = "";
   for(let index = start; index < end;) {

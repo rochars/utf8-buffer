@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## 0.2.0 (2018-08-05)
+- unpack(buffer, start, end) API change: end now is non-inclusive
+
 ## 0.1.0 (2018-07-27)
 - pack(str):Uint8Array updated to pack(str, buffer, index=0):number
 	- *buffer* is the buffer you are writing to (ideally Uint8Array, but will work the same with Array or any Array-like object).

@@ -73,9 +73,9 @@ describe('unpack UTF-8 strings, 4 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([
+            [
                 0xEF,0xBB,0xBF,
-                240,175,167,159]),
+                240,175,167,159],
             buffer);
     });
 });
@@ -86,10 +86,10 @@ describe('unpack UTF-8 strings, 4 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([
+            [
                 240,175,167,159,
                 0xEF,0xBB,0xBF,
-                240,175,167,159]),
+                240,175,167,159],
             buffer);
     });
 });
@@ -100,7 +100,7 @@ describe('pack UTF-8 strings, 4 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([240,175,167,159]),
+            [240,175,167,159],
             buffer);
     });
     it('pack 輸輸 as a byte array', function() {
@@ -108,9 +108,8 @@ describe('pack UTF-8 strings, 4 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([
-                240,175,167,159,
-                240,175,167,159]),
+            [240,175,167,159,
+                240,175,167,159],
             buffer);
     });
     it('pack 輸輸笠߹~$ as a byte array', function() {
@@ -118,13 +117,13 @@ describe('pack UTF-8 strings, 4 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([
+            [
                 240,175,167,159,
                 240,175,167,159,
                 239, 167, 184,
                 223, 185,
                 126,
-                36]),
+                36],
             buffer);
     });
     it('pack 輸輸笠߹~$輸 as a byte array', function() {
@@ -132,14 +131,14 @@ describe('pack UTF-8 strings, 4 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([
+            [
                 240,175,167,159,
                 240,175,167,159,
                 239, 167, 184,
                 223, 185,
                 126,
                 36,
-                240,175,167,159]),
+                240,175,167,159],
             buffer);
     });
 });
@@ -150,7 +149,7 @@ describe('pack UTF-8 strings, 3 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([239, 167, 184]),
+            [239, 167, 184],
             buffer);
     });
     it('pack 笠笠 as a byte array', function() {
@@ -158,9 +157,9 @@ describe('pack UTF-8 strings, 3 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([
+            [
                 239, 167, 184,
-                239, 167, 184]),
+                239, 167, 184],
             buffer);
     });
     it('pack 笠笠߹~$ as a byte array', function() {
@@ -168,12 +167,12 @@ describe('pack UTF-8 strings, 3 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([
+            [
                 239, 167, 184,
                 239, 167, 184,
                 223, 185,
                 126,
-                36]),
+                36],
             buffer);
     });
     it('pack 笠笠߹~$笠 as a byte array', function() {
@@ -181,13 +180,13 @@ describe('pack UTF-8 strings, 3 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([
+            [
                 239, 167, 184,
                 239, 167, 184,
                 223, 185,
                 126,
                 36,
-                239, 167, 184]),
+                239, 167, 184],
             buffer);
     });
 });
@@ -197,7 +196,7 @@ describe('pack UTF-8 strings, 2 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([223, 185]),
+            [223, 185],
             buffer);
     });
     it('pack ߹߹ as a byte array', function() {
@@ -205,7 +204,7 @@ describe('pack UTF-8 strings, 2 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([223, 185, 223, 185]),
+            [223, 185, 223, 185],
             buffer);
     });
     it('pack ߹߹~$ as a byte array', function() {
@@ -213,7 +212,7 @@ describe('pack UTF-8 strings, 2 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([223, 185, 223, 185, 126, 36]),
+            [223, 185, 223, 185, 126, 36],
             buffer);
     });
     it('pack ߹߹~$߹ as a byte array', function() {
@@ -221,7 +220,7 @@ describe('pack UTF-8 strings, 2 bytes', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([223, 185, 223, 185, 126, 36, 223, 185]),
+            [223, 185, 223, 185, 126, 36, 223, 185],
             buffer);
     });
 });
@@ -231,7 +230,7 @@ describe('pack UTF-8 strings, 1 byte', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([126]),
+            [126],
             buffer);
     });
     it('pack ~~ as a byte array', function() {
@@ -239,7 +238,7 @@ describe('pack UTF-8 strings, 1 byte', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
        assert.deepEqual(
-            new Uint8Array([126, 126]),
+            [126, 126],
             buffer);
     });
     it('pack ~~$ as a byte array', function() {
@@ -247,7 +246,7 @@ describe('pack UTF-8 strings, 1 byte', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([126, 126, 36]),
+            [126, 126, 36],
             buffer);
     });
     it('pack ~~$~ as a byte array', function() {
@@ -255,7 +254,7 @@ describe('pack UTF-8 strings, 1 byte', function() {
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
         assert.deepEqual(
-            new Uint8Array([126, 126, 36, 126]),
+            [126, 126, 36, 126],
             buffer);
     });
 });
@@ -264,13 +263,13 @@ describe('pack ASCII strings', function() {
         var chars = '$';
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
-        assert.deepEqual(new Uint8Array([36]), buffer);
+        assert.deepEqual([36], buffer);
     });
     it('pack $$ as a byte array', function() {
         var chars = '$$';
         var buffer = [];
         utf8Buffer.pack(chars, buffer);
-        assert.deepEqual(new Uint8Array([36, 36]), buffer);
+        assert.deepEqual([36, 36], buffer);
     });
 });
 

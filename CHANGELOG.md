@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.0.0 - 2019-12-31
+- New package structure:
+	* dist file is "./dist/utf8-buffer.js", a UMD served as "main"
+	* ES6 source is "./index.js", served as "module"
+
 ## 0.2.0 (2018-08-05)
 - unpack(buffer, start, end) API change: end now is non-inclusive
 

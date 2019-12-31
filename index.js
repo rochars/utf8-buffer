@@ -44,7 +44,7 @@
  */
 export function unpack(buffer, start=0, end=buffer.length) {
   /** @type {string} */
-  let str = "";
+  let str = '';
   for(let index = start; index < end;) {
     /** @type {number} */
     let lowerBoundary = 0x80;

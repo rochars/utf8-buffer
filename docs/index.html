@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="utf-8">
     <title>Home - Documentation</title>
-
+    
+    
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
     <!--[if lt IE 9]>
@@ -11,6 +13,8 @@
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -21,7 +25,8 @@
 
 <label for="nav-trigger" class="overlay"></label>
 
-<nav>
+<nav >
+    
     <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-utf8-buffer.html">utf8-buffer</a><ul class='methods'><li data-type='method'><a href="module-utf8-buffer.html#.pack">pack</a></li><li data-type='method'><a href="module-utf8-buffer.html#.unpack">unpack</a></li></ul></li></ul>
 </nav>
 
@@ -35,6 +40,11 @@
     
 
 
+    <section class="package">
+        <h3> </h3>		
+    </section>
+
+
 
 
 
@@ -45,25 +55,39 @@
     
 
 
+
     <section class="readme">
-        <article><h1>utf8-buffer</h1><p>ES6 module to encode and decode UTF-8 strings.<br>Copyright (c) 2018 Rafael da Silva Rocha.<br>https://github.com/rochars/utf8-buffer</p>
-<p><a href="https://www.npmjs.com/package/utf8-buffer"><img src="https://img.shields.io/npm/v/utf8-buffer.svg?style=for-the-badge" alt="NPM version"></a> <a href="https://rochars.github.io/utf8-buffer/docs/index.html"><img src="https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge" alt="Docs"></a> <a href="https://rochars.github.io/utf8-buffer/test/dist/browser.html"><img src="https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge" alt="Tests"></a><br><a href="https://codecov.io/gh/rochars/utf8-buffer"><img src="https://img.shields.io/codecov/c/github/rochars/utf8-buffer.svg?style=flat-square" alt="Codecov"></a> <a href="https://travis-ci.org/rochars/utf8-buffer"><img src="https://img.shields.io/travis/rochars/utf8-buffer.svg?style=flat-square" alt="Unix Build"></a> <a href="https://ci.appveyor.com/project/rochars/utf8-buffer"><img src="https://img.shields.io/appveyor/ci/rochars/utf8-buffer.svg?style=flat-square&amp;logo=appveyor" alt="Windows Build"></a> <a href="https://scrutinizer-ci.com/g/rochars/utf8-buffer/"><img src="https://img.shields.io/scrutinizer/g/rochars/utf8-buffer.svg?style=flat-square&amp;logo=scrutinizer" alt="Scrutinizer"></a></p>
+        <article><h1>utf8-buffer</h1>
+<p>ES6 module to encode and decode UTF-8 strings.<br>
+Copyright (c) 2018-2019 Rafael da Silva Rocha.<br>
+https://github.com/rochars/utf8-buffer</p>
+<p><a href="https://www.npmjs.com/package/utf8-buffer"><img src="https://img.shields.io/npm/v/utf8-buffer.svg?style=for-the-badge" alt="NPM version"></a> <a href="https://rochars.github.io/utf8-buffer/docs/index.html"><img src="https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge" alt="Docs"></a> <a href="https://rochars.github.io/utf8-buffer/test/dist/browser.html"><img src="https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge" alt="Tests"></a><br>
+<a href="https://codecov.io/gh/rochars/utf8-buffer"><img src="https://img.shields.io/codecov/c/github/rochars/utf8-buffer.svg?style=flat-square" alt="Codecov"></a> <a href="https://travis-ci.org/rochars/utf8-buffer"><img src="https://img.shields.io/travis/rochars/utf8-buffer.svg?style=flat-square" alt="Unix Build"></a> <a href="https://ci.appveyor.com/project/rochars/utf8-buffer"><img src="https://img.shields.io/appveyor/ci/rochars/utf8-buffer.svg?style=flat-square&amp;logo=appveyor" alt="Windows Build"></a> <a href="https://scrutinizer-ci.com/g/rochars/utf8-buffer/"><img src="https://img.shields.io/scrutinizer/g/rochars/utf8-buffer.svg?style=flat-square&amp;logo=scrutinizer" alt="Scrutinizer"></a></p>
 <p><strong>utf8-buffer</strong> is a ES6 module to encode and decode UTF-8 strings.</p>
-<ul>
-<li><strong>MIT licensed</strong></li>
-<li><strong>Use it out of the box in the browser</strong></li>
-<li><strong>Use it out of the box in Node.js</strong></li>
-<li><strong>Less than 2KB minified!</strong></li>
-</ul>
-<h2>Install</h2><pre class="prettyprint source"><code>npm install utf8-buffer</code></pre><h2>Use</h2><h3>Node</h3><p>If you installed via <a href="https://www.npmjs.com/">NPM</a> or <a href="https://yarnpkg.com">Yarn</a>, <strong>import utf8Buffer from utf8-buffer</strong>:</p>
-<pre class="prettyprint source lang-javascript"><code>import * as utf8Buffer from 'utf8-buffer';</code></pre><p>Or <strong>import</strong> just what you need:</p>
-<pre class="prettyprint source lang-javascript"><code>import {pack, unpack} from 'utf8-buffer';</code></pre><p>Or <strong>require</strong>:</p>
-<pre class="prettyprint source lang-javascript"><code>const utf8Buffer = require('utf8-buffer');</code></pre><h3>Browser</h3><p>Use <strong>utf8-buffer.umd.js</strong> in the <em>/dist</em> folder of this package:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;./dist/utf8-buffer.umd.js&quot;>&lt;/script></code></pre><p>Or load it from the <a href="https://cdn.jsdelivr.net/npm/utf8-buffer">jsDelivr</a> CDN:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/utf8-buffer&quot;>&lt;/script></code></pre><p>Or load it from <a href="https://unpkg.com/utf8-buffer">unpkg</a>:</p>
-<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://unpkg.com/utf8-buffer&quot;>&lt;/script></code></pre><h2>About</h2><p>Only UTF-8 strings with a max of 4 bytes per character are supported. <strong>BOM</strong> is kept untouched. Invalid characters are replaced with <em>Unicode Character 'REPLACEMENT CHARACTER' (U+FFFD)</em>.</p>
-<h3>Browser compatibility</h3><p>IE8+. Should work in all modern browsers. Cross-browser tests are on the <a href="https://github.com/rochars/utf8-buffer/blob/master/ROADMAP.md">ROADMAP</a>.</p>
-<h2>API</h2><pre class="prettyprint source lang-javascript"><code>/**
+<h2>Install</h2>
+<pre class="prettyprint source"><code>npm install utf8-buffer
+</code></pre>
+<h2>Use</h2>
+<h3>Browser</h3>
+<p>Use the <strong>utf8-buffer.js</strong> file in the <em>/dist</em> folder:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;./dist/utf8-buffer.js&quot;>&lt;/script>
+</code></pre>
+<p>Or load it from the <a href="https://cdn.jsdelivr.net/npm/utf8-buffer">jsDelivr</a> CDN:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/utf8-buffer&quot;>&lt;/script>
+</code></pre>
+<p>Or load it from <a href="https://unpkg.com/utf8-buffer">unpkg</a>:</p>
+<pre class="prettyprint source lang-html"><code>&lt;script src=&quot;https://unpkg.com/utf8-buffer&quot;>&lt;/script>
+</code></pre>
+<h3>Node</h3>
+<pre class="prettyprint source lang-javascript"><code>const utf8Buffer = require('utf8-buffer');
+</code></pre>
+<p>Or <strong>import</strong> just what you need:</p>
+<pre class="prettyprint source lang-javascript"><code>import {pack, unpack} from 'utf8-buffer';
+</code></pre>
+<h2>About</h2>
+<p>Only UTF-8 strings with a max of 4 bytes per character are supported. <strong>BOM</strong> is kept untouched. Invalid characters are replaced with <em>Unicode Character 'REPLACEMENT CHARACTER' (U+FFFD)</em>.</p>
+<h2>API</h2>
+<pre class="prettyprint source lang-javascript"><code>/**
  * Read a string of UTF-8 characters from a byte buffer.
  * Invalid characters are replaced with 'REPLACEMENT CHARACTER' (U+FFFD).
  * @see https://encoding.spec.whatwg.org/#the-encoding
@@ -84,11 +108,18 @@ export function unpack(buffer, start=0, end=buffer.length) {}
  * @param {number=} index The buffer index to start writing.
  * @return {number} The next index to write in the buffer.
  */
-export function pack(str, buffer, index=0) {}</code></pre><h2>Contributing</h2><p><strong>utf8-buffer</strong> welcomes all contributions from anyone willing to work in good faith with other contributors and the community. No contribution is too small and all contributions are valued.</p>
+export function pack(str, buffer, index=0) {}
+</code></pre>
+<h2>Contributing</h2>
+<p><strong>utf8-buffer</strong> welcomes all contributions from anyone willing to work in good faith with other contributors and the community. No contribution is too small and all contributions are valued.</p>
 <p>See <a href="https://github.com/rochars/utf8-buffer/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> for details.</p>
-<h3>Style guide</h3><p><strong>utf8-buffer</strong> code should follow the Google JavaScript Style Guide:<br>https://google.github.io/styleguide/jsguide.html</p>
-<h3>Code of conduct</h3><p>This project is bound by a code of conduct: The <a href="https://github.com/rochars/utf8-buffer/blob/master/CODE_OF_CONDUCT.md">Contributor Covenant, version 1.4</a>, also available at https://<a href="http://www.contributor-covenant.org/version/1/4/code-of-conduct.html">www.contributor-covenant.org/version/1/4/code-of-conduct.html</a></p>
-<h2>LICENSE</h2><p>Copyright (c) 2018 Rafael da Silva Rocha.</p>
+<h3>Style guide</h3>
+<p><strong>utf8-buffer</strong> code should follow the Google JavaScript Style Guide:<br>
+https://google.github.io/styleguide/jsguide.html</p>
+<h3>Code of conduct</h3>
+<p>This project is bound by a code of conduct: The <a href="https://github.com/rochars/utf8-buffer/blob/master/CODE_OF_CONDUCT.md">Contributor Covenant, version 1.4</a>, also available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html</p>
+<h2>LICENSE</h2>
+<p>Copyright (c) 2018-2019 Rafael da Silva Rocha.</p>
 <p>Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
 &quot;Software&quot;), to deal in the Software without restriction, including
@@ -120,23 +151,24 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
 <header>
     
         <h2>
-        main.js
+        index.js
         </h2>
         
     
 </header>
 
 <article>
-    <div class="container-overview">
     
+        <div class="container-overview">
         
+            
 
 <dl class="details">
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="main.js.html">main.js</a>, <a href="main.js.html#line25">line 25</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -185,18 +217,21 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
 
 
 
-        
-            <div class="description">Functions to serialize and deserialize UTF-8 strings.</div>
-        
+            
+                <div class="description">Functions to serialize and deserialize UTF-8 strings.</div>
+            
 
+            
         
-    
-    </div>
-
-    
-
+        </div>
     
 
+    
+
+    
+
+    
+    
     
 
      
@@ -217,15 +252,21 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p></article>
 
 
 
+    
+    
 </div>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Aug 05 2018 04:05:42 GMT-0300 (Hora oficial do Brasil) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
 <script src="scripts/linenumber.js"></script>
+
+
+
 </body>
 </html>

@@ -16,21 +16,20 @@
 			<a href="https://github.com/rochars/utf8-buffer">https://github.com/rochars/utf8-buffer</a></p>
 	</div>
 
-	<!-- Load Mocha -->
+	<!-- Load UMD -->
+	<script src="../../dist/utf8-buffer.js"></script>
+
+	<!-- Load Chai and Mocha -->
 	<div class="container">
 		<div id="mocha"></div>
 	</div>
-
-	<!-- Load shims -->
-	<script src="shims.js"></script>
-
-	<!-- Load Mocha and assertions -->
-	<script src="assert.js"></script>
+	<script src="https://www.chaijs.com/chai.js"></script>
 	<script src="https://unpkg.com/mocha@4.0.1/mocha.js"></script>
-	<script>mocha.setup('bdd')</script>
-
-	<!-- Load UMD -->
-	<script src="../../dist/utf8-buffer.umd.js"></script>
+	<script>
+		var assert = chai.assert;
+		var utf8Buffer = UTF8Buffer;
+		mocha.setup('bdd')
+	</script>
 
 	<!-- Load the tests -->
 	<script src="../src/UTF-8-with-arrays.js"></script>

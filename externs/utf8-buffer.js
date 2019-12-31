@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018 Rafael da Silva Rocha.
+ * Copyright (c) 2018-2019 Rafael da Silva Rocha.
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -23,7 +23,7 @@
  */
 
 /**
- * @fileoverview Externs for utf8-buffer 0.1.0
+ * @fileoverview Externs for utf8-buffer 1.0.0
  * @see https://github.com/rochars/utf8-buffer
  * @externs
  */

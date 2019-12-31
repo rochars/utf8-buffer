@@ -1,5 +1,25 @@
 /*
- * Copyright (c) 2018 Rafael da Silva Rocha.
+ * Copyright (c) 2018-2019 Rafael da Silva Rocha.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
  */
 
 /**
@@ -7,56 +27,26 @@
  * @see https://github.com/rochars/utf8-buffer
  */
 
-import closure from 'rollup-plugin-closure-compiler-js';
-import fs from 'fs';
-
-// Externs
-const externsFile = fs.readFileSync('./externs/utf8-buffer.js', 'utf8');
-
-// Legal
-const license = '/*!\n'+
-  ' * https://github.com/rochars/utf8-buffer.\n'+
-  ' * Copyright (c) 2018 Rafael da Silva Rocha.\n' +
-  ' */\n';
-
-// GCC UMD wrapper
-const outputWrapper = '%output%' +
-  'var module=module||{};module.exports=exports;' +
-  'var define=define||function(){};' +
-  'define(["exports"],function(e){return module.exports;});' +
-  'var utf8Buffer=exports;'
+import compiler from '@ampproject/rollup-plugin-closure-compiler';
 
 export default [
-  // ES6 bundle
   {
-    input: 'main.js',
+    input: 'index.js',
     output: [
       {
         file: 'dist/utf8-buffer.js',
-        format: 'es'
+        name: 'UTF8Buffer',
+        format: 'umd'
       },
-    ]
-  },
-  // UMD, minified
-  {
-    input: 'dist/utf8-buffer.js',
-    output: [
-      {
-        file: 'dist/utf8-buffer.umd.js',
-        format: 'cjs',
-        strict: false,
-        banner: 'var exports=exports||{};'
-      }
     ],
     plugins: [
-      closure({
-        languageIn: 'ECMASCRIPT6',
-        languageOut: 'ECMASCRIPT5',
-        compilationLevel: 'ADVANCED',
-        warningLevel: 'VERBOSE',
-        outputWrapper: license + outputWrapper,
-        externs: [{src: externsFile + 'exports={};'}]
+      compiler({
+        language_in: 'ECMASCRIPT6',
+        language_out: 'ECMASCRIPT3',
+        compilation_level: 'SIMPLE',
+        warning_level: 'VERBOSE',
+        externs: ['externs/utf8-buffer.js']
       })
     ]
-  },
+  }
 ];

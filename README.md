@@ -1,17 +1,12 @@
 # utf8-buffer
 ES6 module to encode and decode UTF-8 strings.  
-Copyright (c) 2018 Rafael da Silva Rocha.  
+Copyright (c) 2018-2019 Rafael da Silva Rocha.  
 https://github.com/rochars/utf8-buffer
 
 [![NPM version](https://img.shields.io/npm/v/utf8-buffer.svg?style=for-the-badge)](https://www.npmjs.com/package/utf8-buffer) [![Docs](https://img.shields.io/badge/docs-online-blue.svg?style=for-the-badge)](https://rochars.github.io/utf8-buffer/docs/index.html) [![Tests](https://img.shields.io/badge/tests-online-blue.svg?style=for-the-badge)](https://rochars.github.io/utf8-buffer/test/dist/browser.html)  
 [![Codecov](https://img.shields.io/codecov/c/github/rochars/utf8-buffer.svg?style=flat-square)](https://codecov.io/gh/rochars/utf8-buffer) [![Unix Build](https://img.shields.io/travis/rochars/utf8-buffer.svg?style=flat-square)](https://travis-ci.org/rochars/utf8-buffer) [![Windows Build](https://img.shields.io/appveyor/ci/rochars/utf8-buffer.svg?style=flat-square&logo=appveyor)](https://ci.appveyor.com/project/rochars/utf8-buffer) [![Scrutinizer](https://img.shields.io/scrutinizer/g/rochars/utf8-buffer.svg?style=flat-square&logo=scrutinizer)](https://scrutinizer-ci.com/g/rochars/utf8-buffer/)
 
 **utf8-buffer** is a ES6 module to encode and decode UTF-8 strings.
-
-- **MIT licensed**
-- **Use it out of the box in the browser**
-- **Use it out of the box in Node.js**
-- **Less than 2KB minified!**
 
 ## Install
 ```
@@ -20,26 +15,10 @@ npm install utf8-buffer
 
 ## Use
 
-### Node
-If you installed via [NPM](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com), **import utf8Buffer from utf8-buffer**:
-```javascript
-import * as utf8Buffer from 'utf8-buffer';
-```
-
-Or **import** just what you need:
-```javascript
-import {pack, unpack} from 'utf8-buffer';
-```
-
-Or **require**:
-```javascript
-const utf8Buffer = require('utf8-buffer');
-```
-
 ### Browser
-Use **utf8-buffer.umd.js** in the */dist* folder of this package:
+Use the **utf8-buffer.js** file in the */dist* folder:
 ```html
-<script src="./dist/utf8-buffer.umd.js"></script>
+<script src="./dist/utf8-buffer.js"></script>
 ```
 
 Or load it from the [jsDelivr](https://cdn.jsdelivr.net/npm/utf8-buffer) CDN:
@@ -52,11 +31,18 @@ Or load it from [unpkg](https://unpkg.com/utf8-buffer):
 <script src="https://unpkg.com/utf8-buffer"></script>
 ```
 
+### Node
+```javascript
+const utf8Buffer = require('utf8-buffer');
+```
+
+Or **import** just what you need:
+```javascript
+import {pack, unpack} from 'utf8-buffer';
+```
+
 ## About
 Only UTF-8 strings with a max of 4 bytes per character are supported. **BOM** is kept untouched. Invalid characters are replaced with *Unicode Character 'REPLACEMENT CHARACTER' (U+FFFD)*.
-
-### Browser compatibility
-IE8+. Should work in all modern browsers. Cross-browser tests are on the [ROADMAP](https://github.com/rochars/utf8-buffer/blob/master/ROADMAP.md).
 
 ## API
 ```javascript
@@ -97,7 +83,7 @@ https://google.github.io/styleguide/jsguide.html
 This project is bound by a code of conduct: The [Contributor Covenant, version 1.4](https://github.com/rochars/utf8-buffer/blob/master/CODE_OF_CONDUCT.md), also available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
 ## LICENSE
-Copyright (c) 2018 Rafael da Silva Rocha.
+Copyright (c) 2018-2019 Rafael da Silva Rocha.
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
